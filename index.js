@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.get("/testing", async (req, res) => {
+app.get("/", async (req, res) => {
   await axios
     .get(
       "https://jobs.github.com/positions.json?description=engineer&location=berlin",
