@@ -46,7 +46,7 @@ app.get("/locationbasedsearch", async (req, res) => {
       `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=&full_time=&location=${userCity}`
     )
     .then((res) => response.push(res.data));
-  res.send(response);
+  res.send(response, userCity);
 });
 
 app.listen(PORT, () => {
