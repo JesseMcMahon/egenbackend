@@ -38,6 +38,17 @@ app.get("/userlocation", async (req, res) => {
   res.send(response);
 });
 
+app.get("/locationbasedsearch", async (req, res) => {
+  const { userCity } = req.query;
+  const response = [];
+  await axios
+    .get(
+      `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=&full_time=&location=${userCity}`
+    )
+    .then((res) => response.push(res.data));
+  res.send(response);
+});
+
 app.listen(PORT, () => {
   console.log(`App is listening on ${PORT}`);
 });
