@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const axios = require("axios");
 const stringify = require("json-stringify-safe");
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
@@ -22,6 +23,6 @@ app.get("/", async (req, res) => {
     .then((data) => res.send(stringify(data)));
 });
 
-app.listen(5000, () => {
-  console.log("App is listening on port 5000");
+app.listen(PORT, () => {
+  console.log(`App is listening on ${PORT}`);
 });
